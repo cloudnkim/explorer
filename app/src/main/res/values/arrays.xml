@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="item1">요소수</string-array>
+    <string-array name="item2">재난문자</string-array>
+</resources>
