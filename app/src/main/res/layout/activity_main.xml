@@ -14,11 +14,11 @@
         android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <FrameLayout
-        android:id="@+id/fragment_root"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/main_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/height_topmenu"
-        app:layout_constraintTop_toBottomOf="@+id/top_menu" />
+        android:orientation="horizontal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
