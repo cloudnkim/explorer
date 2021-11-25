@@ -1,12 +1,13 @@
 package com.ksjcloud.explorer.ui.main
 
-import com.ksjcloud.explorer.ui.base.baseI
+import androidx.viewpager2.widget.ViewPager2
+import com.ksjcloud.explorer.ui.base.BaseI
 
 class MainI {
-    interface Presenter<V:View> : baseI.Presenter<V> {
-
+    interface Presenter<V:View> : BaseI.Presenter<V> {
+        fun setPageChangeCallback(pageView: ViewPager2)
     }
-    interface View : baseI.View {
+    interface View : BaseI.View {
 
     }
 }

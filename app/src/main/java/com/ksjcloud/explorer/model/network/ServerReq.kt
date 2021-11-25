@@ -3,7 +3,7 @@ package com.ksjcloud.explorer.model.network
 import okhttp3.*
 import java.io.IOException
 
-class serverReq(apiServer:serverApis, result:OnResultListener) {
+class ServerReq(apiServer:serverApis, result:OnResultListener) {
 
     private val apis:serverApis = apiServer
     private var okHttpClient:OkHttpClient = OkHttpClient()

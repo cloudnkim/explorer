@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ksjcloud.explorer.R
-import com.ksjcloud.explorer.ui.base.baseFragment
+import com.ksjcloud.explorer.ui.base.BaseFragment
 
-class disaFragment : baseFragment(), disaI.View{
+class DisaFragment : BaseFragment(), DisaI.View{
     private lateinit var mView: View
-    private var mPresenter:disaPresenter<disaI.View> = disaPresenter()
+    private var mPresenter:DisaPresenter<DisaI.View> = DisaPresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

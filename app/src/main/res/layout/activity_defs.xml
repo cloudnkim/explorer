@@ -10,10 +10,10 @@
         android:text="요소수 페이지"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <GridLayout
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/defsView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:columnCount="3"/>
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

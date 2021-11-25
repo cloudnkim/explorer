@@ -2,15 +2,12 @@ package com.ksjcloud.explorer.ui.base
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
-abstract class baseFragment : Fragment(), baseI.View {
+abstract class BaseFragment : Fragment(), BaseI.View {
 
     lateinit var mContext: Context
-    lateinit var mBaseActivity:baseActivity
+    lateinit var mBaseActivity:BaseActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

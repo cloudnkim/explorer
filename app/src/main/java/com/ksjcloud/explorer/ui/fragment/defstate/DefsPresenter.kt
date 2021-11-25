@@ -1,10 +1,9 @@
 package com.ksjcloud.explorer.ui.fragment.defstate
 
 import android.content.Context
-import com.ksjcloud.explorer.ui.base.baseFragment
-import com.ksjcloud.explorer.ui.base.basePresenter
+import com.ksjcloud.explorer.ui.base.BasePresenter
 
-class defsPresenter<V : defsI.View> : basePresenter<V>(), defsI.Presenter<V> {
+class DefsPresenter<V : DefsI.View> : BasePresenter<V>(), DefsI.Presenter<V> {
 
     lateinit var mAppView:V
 
