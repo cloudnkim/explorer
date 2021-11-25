@@ -1,7 +1,7 @@
 package com.ksjcloud.explorer.model.network
 
-enum class serverApis(url:String, method:String) {
-    apiDataGoInfuser("","GET"), //요소수
+enum class ServerApis(url:String, method:String) {
+    apiDataGoInfuser("api.odcloud.kr","GET"), //요소수
     apiDataGoDisaster("","GET") //재난
     ;
 
