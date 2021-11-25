@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ksjcloud.explorer.R
+import com.ksjcloud.explorer.ui.base.BaseActivity
 import com.ksjcloud.explorer.ui.base.BaseFragment
 
-class DisaFragment : BaseFragment(), DisaI.View{
+class DisaFragment(baseActivity: BaseActivity) : BaseFragment(), DisaI.View{
+    private var mActivity = baseActivity
     private lateinit var mView: View
     private var mPresenter:DisaPresenter<DisaI.View> = DisaPresenter()
 
@@ -20,7 +22,7 @@ class DisaFragment : BaseFragment(), DisaI.View{
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        mPresenter.onAttach(mContext, this)
+        mPresenter.onAttach(mContext, mActivity,this)
         mView = layoutInflater.inflate(R.layout.activity_disa, container, false)
 
         return mView

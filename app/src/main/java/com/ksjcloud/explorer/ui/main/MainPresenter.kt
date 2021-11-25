@@ -2,9 +2,11 @@ package com.ksjcloud.explorer.ui.main
 
 import android.content.Context
 import androidx.viewpager2.widget.ViewPager2
+import com.ksjcloud.explorer.ui.base.BaseActivity
 
 class MainPresenter<V:MainI.View> : MainI.Presenter<V> {
     var mContext:Context ?= null
+    var mActivity:BaseActivity ?= null
     var mAppView:MainI.View ?= null
 
     override fun onAttach(context: Context, appView: V) {
@@ -12,6 +14,13 @@ class MainPresenter<V:MainI.View> : MainI.Presenter<V> {
         mAppView = appView
     }
 
+    override fun onAttach(context: Context, baseActivity: BaseActivity, appView: V) {
+        mContext = context
+        mActivity = baseActivity
+        mAppView = appView
+    }
+
+    //뷰페이저 동작..
     override fun setPageChangeCallback(pageView: ViewPager2) {
         pageView.registerOnPageChangeCallback(object:ViewPager2.OnPageChangeCallback() {
             override fun onPageScrolled(
