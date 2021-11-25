@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 
 abstract class baseFragment : Fragment(), baseI.View {
 
-    private lateinit var mContext: Context
-    private lateinit var mBaseActivity:baseActivity
+    lateinit var mContext: Context
+    lateinit var mBaseActivity:baseActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,23 +21,11 @@ abstract class baseFragment : Fragment(), baseI.View {
         mContext = context
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-    }
-
     override fun onShowLoading() {
+
+    }
+
+    override fun onHideLoading() {
 
     }
 }
