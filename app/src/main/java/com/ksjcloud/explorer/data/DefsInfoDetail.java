@@ -3,24 +3,28 @@ package com.ksjcloud.explorer.data;
 import com.google.gson.annotations.SerializedName;
 
 public class DefsInfoDetail {
-    @SerializedName("가격")
+    @SerializedName("price")
     String price;
-    @SerializedName("경도")
+    @SerializedName("lng")
     String longtiude;
-    @SerializedName("데이터기준일")
-    String date;
-    @SerializedName("명칭")
+    @SerializedName("regDt")
+    String regdate;
+    @SerializedName("name")
     String name;
-    @SerializedName("위도")
+    @SerializedName("lat")
     String Latitude;
-    @SerializedName("재고량")
+    @SerializedName("inventory")
     String count;
-    @SerializedName("전화번호")
+    @SerializedName("tel")
     String phone;
-    @SerializedName("주소")
+    @SerializedName("addr")
     String address;
-    @SerializedName("코드")
+    @SerializedName("code")
     String code;
+    @SerializedName("openTime")
+    String openTime;
+    @SerializedName("color")
+    String color;
 
     public String getPrice() {
         return price;
@@ -30,8 +34,8 @@ public class DefsInfoDetail {
         return longtiude;
     }
 
-    public String getDate() {
-        return date;
+    public String getRegDt() {
+        return regdate;
     }
 
     public String getName() {
@@ -56,5 +60,13 @@ public class DefsInfoDetail {
 
     public String getCode() {
         return code;
+    }
+
+    public String getOpenTime() {
+        return openTime;
+    }
+
+    public String getColor() {
+        return color;
     }
 }

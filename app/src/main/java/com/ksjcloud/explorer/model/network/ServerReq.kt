@@ -25,8 +25,6 @@ class ServerReq(apiServer:ServerApis, result:OnResultListener) {
             .addInterceptor(httpLogInterceptor())
             .build()
 
-        Log.d("ServerReq","readTimeout : ${okHttpClient.readTimeoutMillis}")
-
 //        when(apis.getMethod()) {
 //            "GET" -> {
 //                reqs.url(apis.getUrl()).get()
@@ -42,18 +40,13 @@ class ServerReq(apiServer:ServerApis, result:OnResultListener) {
     }
 
     fun setParam(start:Int, end:Int) : ServerReq {
-        var url:HttpUrl = HttpUrl.Builder()
-            .scheme("https").host(apis.mUrl)
-            .addPathSegment("api")
-            .addPathSegment("15094782")
-            .addPathSegment("v1")
-            .addPathSegment("uddi:6b2017af-659d-437e-a549-c59788817675")
+        val url:HttpUrl = HttpUrl.Builder()
+            .scheme("https")
+            .host(apis.mHost).addPathSegments(apis.mPath)
             .addQueryParameter("page", "$start")
             .addQueryParameter("perPage", "$end")
             .addEncodedQueryParameter("serviceKey", "yWES0kYsudaAISuNgXH5j%2F1EYB%2FdXsxXMnxF%2FOGHQ%2BVF4m5R8tLcXieHFKXU3mdQBb90JACVWt9boMGc1RuWMA%3D%3D")
             .build()
-
-        Log.d("ServerReq", "URL : $url")
 
         reqs.url(url)
 
@@ -73,9 +66,9 @@ class ServerReq(apiServer:ServerApis, result:OnResultListener) {
     }
 
     private fun httpLogInterceptor() : HttpLoggingInterceptor {
-        var interceptor = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger() {
+        val interceptor = HttpLoggingInterceptor {
             Log.d("HTTP_LOG", it)
-        })
+        }
         return interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
     }
 }
