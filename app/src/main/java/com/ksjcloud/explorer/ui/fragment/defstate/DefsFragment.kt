@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.ksjcloud.explorer.R
 import com.ksjcloud.explorer.ui.base.BaseActivity
 import com.ksjcloud.explorer.ui.base.BaseFragment
+import kotlinx.android.synthetic.main.activity_defs.*
 
 class DefsFragment(baseActivity: BaseActivity) : BaseFragment(), DefsI.View {
     private lateinit var mView:View
@@ -34,7 +36,11 @@ class DefsFragment(baseActivity: BaseActivity) : BaseFragment(), DefsI.View {
         mPresenter.requestDataApi()
     }
 
+    override fun getContsView(): RecyclerView {
+        return defsView
+    }
+
     override fun getTextView() : TextView {
-        return mView.findViewById(R.id.testText)
+        return testText
     }
 }

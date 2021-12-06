@@ -10,9 +10,14 @@ import com.ksjcloud.explorer.ui.base.BaseActivity
 import com.ksjcloud.explorer.ui.base.BasePresenter
 
 class DefsPresenter<V : DefsI.View> : BasePresenter<V>(), DefsI.Presenter<V> {
+    lateinit var mContext:Context
+    lateinit var defsAdpt:DefsAdapter
+
+    lateinit var mDefsData:DefsInfo
 
     override fun onAttach(context: Context, baseActivity: BaseActivity, appView: V) {
         super.onAttach(context, baseActivity, appView)
+        mContext = context
     }
     override fun onDetach() {
         super.onDetach()
@@ -24,17 +29,18 @@ class DefsPresenter<V : DefsI.View> : BasePresenter<V>(), DefsI.Presenter<V> {
             }
 
             override fun onSuccess(response: String) {
-                var data : DefsInfo = Gson().fromJson(response, DefsInfo::class.java)
+                mDefsData = Gson().fromJson(response, DefsInfo::class.java)
                 mBaseActivity.runOnUiThread {
-                    var strb:StringBuffer = StringBuffer()
-                    for(d:DefsInfoDetail in data.dataList) {
+                    var strb = StringBuffer()
+                    for(d:DefsInfoDetail in mDefsData.dataList) {
                         strb.append("명칭 : ${d.name}\n")
                     }
 
-                    mAppView.getTextView().text = "currentCount : ${data.currentCount}\n$strb"
+                    defsAdpt = DefsAdapter(mContext, mDefsData.dataList)
+                    mAppView.getContsView().adapter = defsAdpt
                 }
             }
         })
-        serverReq.setParam(1,2).newCall()
+        serverReq.setParam(1,100).newCall()
     }
 }

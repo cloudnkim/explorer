@@ -60,7 +60,8 @@ class ServerReq(apiServer:ServerApis, result:OnResultListener) {
             }
 
             override fun onResponse(call: Call, response: Response) {
-                resultListener.onSuccess(response.body!!.source().buffer.readUtf8())
+                var result:String = response.body?.source()?.buffer?.readUtf8().toString()
+                resultListener.onSuccess(result)
             }
         })
     }
